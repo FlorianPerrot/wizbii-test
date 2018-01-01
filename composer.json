@@ -4,6 +4,7 @@
     "require": {
         "php": "^7.0.8",
         "ext-iconv": "*",
+        "doctrine/mongodb-odm": "^1.2",
         "symfony/console": "^3.4",
         "symfony/flex": "^1.0",
         "symfony/framework-bundle": "^3.4",
@@ -11,14 +12,23 @@
         "symfony/yaml": "^3.4"
     },
     "require-dev": {
+        "phpspec/phpspec": "^4.3",
         "symfony/dotenv": "^3.4",
-        "symfony/thanks": "^1.0"
+        "symfony/phpunit-bridge": "^3.4",
+        "symfony/profiler-pack": "^1.0",
+        "symfony/thanks": "^1.0",
+        "symfony/var-dumper": "^3.4",
+        "symfony/web-server-bundle": "^3.4"
     },
     "config": {
         "preferred-install": {
             "*": "dist"
         },
-        "sort-packages": true
+        "sort-packages": true,
+        "platform": {
+            "ext-mongo": "1.6.16"
+        },
+        "bin-dir": "bin"
     },
     "autoload": {
         "psr-4": {
