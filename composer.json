@@ -4,7 +4,9 @@
     "require": {
         "php": "^7.0.8",
         "ext-iconv": "*",
+        "alcaeus/mongo-php-adapter": "^1.1",
         "doctrine/mongodb-odm": "^1.2",
+        "doctrine/mongodb-odm-bundle": "^3.4",
         "symfony/console": "^3.4",
         "symfony/flex": "^1.0",
         "symfony/framework-bundle": "^3.4",
