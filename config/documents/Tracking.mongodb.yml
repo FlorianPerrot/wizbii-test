@@ -1,0 +1,3 @@
+App\Document\Tracking:
+    fields:
+        id: { id: true }
