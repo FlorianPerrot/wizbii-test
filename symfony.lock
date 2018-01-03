@@ -1,4 +1,7 @@
 {
+    "alcaeus/mongo-php-adapter": {
+        "version": "1.1.3"
+    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -31,6 +34,18 @@
     },
     "doctrine/mongodb-odm": {
         "version": "1.2.1"
+    },
+    "doctrine/mongodb-odm-bundle": {
+        "version": "3.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "3.3",
+            "ref": "e1ee362a520ff9e3e7c38fb5399499427ed91314"
+        }
+    },
+    "mongodb/mongodb": {
+        "version": "1.2.0"
     },
     "phpdocumentor/reflection-common": {
         "version": "1.0.1"
@@ -98,6 +113,9 @@
     "symfony/dependency-injection": {
         "version": "v3.4.2"
     },
+    "symfony/doctrine-bridge": {
+        "version": "v3.4.2"
+    },
     "symfony/dotenv": {
         "version": "v3.4.2"
     },
@@ -137,6 +155,9 @@
     "symfony/lts": {
         "version": "v3"
     },
+    "symfony/options-resolver": {
+        "version": "v3.4.2"
+    },
     "symfony/phpunit-bridge": {
         "version": "3.3",
         "recipe": {
@@ -169,6 +190,9 @@
     },
     "symfony/stopwatch": {
         "version": "v3.4.2"
+    },
+    "symfony/thanks": {
+        "version": "v1.0.0"
     },
     "symfony/twig-bridge": {
         "version": "v3.4.2"
