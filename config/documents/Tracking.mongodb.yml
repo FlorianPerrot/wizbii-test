@@ -1,3 +1,11 @@
 App\Document\Tracking:
     fields:
         id: { id: true }
+
+        version: { type: int }
+        tracking_id: { type: string }
+        data_source: { type: string }
+        queue_time: { type: int }
+        cache_burster: { type: int }
+
+        hit_type: { type: string }
