@@ -89,6 +89,9 @@
     "sebastian/recursion-context": {
         "version": "3.0.0"
     },
+    "symfony/browser-kit": {
+        "version": "v3.4.3"
+    },
     "symfony/cache": {
         "version": "v3.4.2"
     },
@@ -115,6 +118,9 @@
     },
     "symfony/doctrine-bridge": {
         "version": "v3.4.2"
+    },
+    "symfony/dom-crawler": {
+        "version": "v3.4.3"
     },
     "symfony/dotenv": {
         "version": "v3.4.2"
