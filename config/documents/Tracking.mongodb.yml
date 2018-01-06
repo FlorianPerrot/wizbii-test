@@ -9,3 +9,25 @@ App\Document\Tracking:
         cache_burster: { type: int }
 
         hit_type: { type: string }
+
+        document_location: { type: string }
+        document_referer: { type: string }
+        screen_name: { type: string }
+
+        wizbii_creator_type: { type: string }
+        wizbii_user_id: { type: string }
+        wizbii_user_uuid: { type: string }
+
+        event_category: { type: string }
+        event_action: { type: string }
+        event_label: { type: string }
+        event_value: { type: string }
+
+        campaign_name: { type: string }
+        campaign_source: { type: string }
+        campaign_medium: { type: string }
+        campaign_keyword: { type: string }
+        campaign_content: { type: string }
+
+        application_name: { type: string }
+        application_version: { type: string }

@@ -1,0 +1,48 @@
+App\Document\Tracking:
+    constraints:
+        #Screen name
+        - Expression:
+            expression: "this.get('hit_type') != 'screenview' or this.get('screen_name') != null"
+            message: "Screen name is mandatory if hit type is 'screenview'"
+
+        #Application name
+        - Expression:
+            expression: "this.get('data_source') == 'web' or this.get('application_name') != null"
+            message: "Application name is mandatory if data source is not equal to 'web'"
+
+        #Event hit - event_category and event_action
+        - Expression:
+            expression: "this.get('hit_type') != 'event' or (this.get('event_category') != null and this.get('event_action') != null)"
+            message: "Event category and event action are mandatory if hit type is equal to 'event'"
+
+    properties:
+        version:
+            - NotBlank: ~
+            - IdenticalTo: 1
+
+        hit_type:
+            - Choice: [pageview, screenview, event]
+            - NotBlank: ~
+
+        document_location:
+            - Url: ~
+
+        document_referer:
+            - Url: ~
+
+        wizbii_creator_type:
+            - Choice: [profile, recruiter, visitor, wizbii_employee]
+
+        wizbii_user_id:
+            - NotBlank: ~
+
+        wizbii_user_uuid:
+            - NotBlank: ~
+
+        tracking_id:
+            - Regex: '~^UA-\d{4}-\d$~'
+            - NotBlank: ~
+
+        data_source:
+            - Choice: [web, apps, backend]
+            - NotBlank: ~

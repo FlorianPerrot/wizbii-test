@@ -27,10 +27,11 @@ class Tracking
     //Wizbii - User
     private $wizbii_creator_type;
     private $wizbii_user_id;
-    private $wizbii_user_uui;
+    private $wizbii_user_uuid;
 
     //Event Tracking
     private $event_category;
+
     private $event_action;
     private $event_label;
     private $event_value;
