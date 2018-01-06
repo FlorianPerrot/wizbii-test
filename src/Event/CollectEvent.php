@@ -9,6 +9,7 @@ namespace App\Event;
 
 use App\Document\Tracking;
 use Symfony\Component\EventDispatcher\Event;
+use Symfony\Component\Validator\ConstraintViolationListInterface;
 
 /**
  * Class CollectEvent
@@ -26,6 +27,11 @@ class CollectEvent extends Event
      * @var Tracking
      */
     private $tracking;
+
+    /**
+     * @var ConstraintViolationListInterface
+     */
+    private $violations;
 
     /**
      * CollectEvent constructor.
@@ -51,6 +57,22 @@ class CollectEvent extends Event
     public function setTracking(Tracking $tracking)
     {
         $this->tracking = $tracking;
+    }
+
+    /**
+     * @return ConstraintViolationListInterface
+     */
+    public function getViolations(): ConstraintViolationListInterface
+    {
+        return $this->violations;
+    }
+
+    /**
+     * @param ConstraintViolationListInterface $violations
+     */
+    public function setViolations(ConstraintViolationListInterface $violations)
+    {
+        $this->violations = $violations;
     }
 
     /**
