@@ -9,7 +9,9 @@ namespace App\Controller;
 
 use App\Document\Tracking;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Validator;
 
 /**
  * Class DefaultController
@@ -19,22 +21,12 @@ class DefaultController extends Controller
 {
 
     /**
-     * Index - test only
-     * TODO: Create welcome page
+     * Index - redirect to wizbii doc
      * @return Response
      */
     public function index()
     {
-        $tra = new Tracking();
-        $tra->set('version', 1);
-
-        /** @var Doctrine\ODM\MongoDB\DocumentManager $dm */
-        $dm = $this->get('doctrine_mongodb')->getManager();
-
-        $dm->persist($tra);
-        $dm->flush();
-
-        return new Response('INDEX', 200);
+        return new RedirectResponse('https://analytics.wizbii.com/doc.html');
     }
 
 }
