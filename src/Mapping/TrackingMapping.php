@@ -35,7 +35,14 @@ class TrackingMapping
      */
     public function normalize(Tracking $tracking)
     {
-        return [];
+        $data = [];
+        foreach ($this->getAvailablesFields() as $field) {
+            $value = $tracking->get($field);
+            if (!empty($value)) {
+                $data[$this->mapping[$field]] = $value;
+            }
+        }
+        return $data;
     }
 
     /**
