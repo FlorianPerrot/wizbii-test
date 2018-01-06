@@ -2,6 +2,30 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: 'en'
+    tracking_mapping:
+        version: v,
+        hit_type: t,
+        document_location: dl,
+        document_referer: dr
+        wizbii_creator_type: wct
+        wizbii_user_id: wui
+        wizbii_user_uuid: wuui
+        event_category: ec
+        event_action: ea
+        event_label: el
+        event_value: ev
+        tracking_id: tid
+        data_source: ds
+        campaign_name: cn
+        campaign_source: cs
+        campaign_medium: cm
+        campaign_keyword: ck
+        campaign_content: cc
+        screen_name: sn
+        application_name: an
+        application_version: av
+        queue_time: qt
+        cache_burster: z
 
 services:
     # default configuration for services in *this* file
@@ -26,3 +50,7 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    App\Mapping\TrackingMapping:
+        arguments:
+            $mapping: '%tracking_mapping%'
