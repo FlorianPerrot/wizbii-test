@@ -18,7 +18,7 @@ App\Document\Tracking:
     properties:
         version:
             - NotBlank: ~
-            - IdenticalTo: 1
+            - IdenticalTo: "1"
 
         hit_type:
             - Choice: [pageview, screenview, event]
