@@ -24,46 +24,53 @@ class DefaultApiController extends Controller
 {
 
     /**
+     * @var EventDispatcherInterface
+     */
+    private $eventDispatcher;
+
+    /**
+     * DefaultApiController constructor.
+     * @param EventDispatcherInterface $eventDispatcher
+     */
+    public function __construct(EventDispatcherInterface $eventDispatcher)
+    {
+        $this->eventDispatcher = $eventDispatcher;
+    }
+
+
+    /**
      * Collect tracking information
      * @param Request $request
-     * @param EventDispatcherInterface $eventDispatcher
      * @return Response
      */
-    public function collect(Request $request, EventDispatcherInterface $eventDispatcher)
+    public function collect(Request $request)
     {
         /** @var DocumentManager $dm */
         $dm = $this->get('doctrine.odm.mongodb.document_manager');
 
-        $events = [];
         if ($request->getMethod() == Request::METHOD_GET) {
-            $event = new CollectEvent($request->query->all());
-            $eventDispatcher->dispatch(KernelEvents::COLLECT, $event);
-            $events[] = $event;
+            $data = $request->query->all();
         }
-        else if ($request->getMethod() == Request::METHOD_POST) {
-            foreach ($request->request as $bag) {
-                $event = new CollectEvent($bag);
-                $eventDispatcher->dispatch(KernelEvents::COLLECT, $event);
-                $events[] = $event;
-            }
+        elseif ($request->getMethod() == Request::METHOD_POST) {
+            $data = $request->request->all();
         }
 
-        $json_response = ['status' => 'OK'];
+        $events = $this->processData($data, $request->getMethod() == Request::METHOD_POST);
+
+        $json_response = ['status' => 'KO'];
         foreach ($events as $event) {
-            /** @var CollectEvent $event */
-            if (!empty($event->getViolations())) {
+            $nbErrors = count($event->getViolations());
+            if ($nbErrors > 0) {
                 $json_response['errors'][] = [
                     'target' => $request->query->all(),
                     'violations' => $event->getViolations()->count()
                 ];
             }
-            else {
-                $dm->persist($event->getTracking());
-            }
+            else $dm->persist($event->getTracking());
         }
 
-        if (!empty($json_response['errors'])) {
-            $json_response['status'] = 'KO';
+        if (!empty($events) && empty($json_response['errors'])) {
+            $json_response['status'] = 'OK';
         }
 
         $dm->flush();
@@ -71,4 +78,28 @@ class DefaultApiController extends Controller
         return new JsonResponse($json_response);
     }
 
+
+    /**
+     * @param $data
+     * @param boolean $multiple
+     * @return CollectEvent[]
+     */
+    private function processData($data, $multiple)
+    {
+        $events = [];
+        if ($multiple) {
+            foreach ($data as $item) {
+                $events[] = new CollectEvent($item);
+            }
+        }
+        else {
+            $events[] = new CollectEvent($data);
+        }
+
+        foreach ($events as $event) {
+            $this->eventDispatcher->dispatch(KernelEvents::COLLECT, $event);
+        }
+
+        return $events;
+    }
 }

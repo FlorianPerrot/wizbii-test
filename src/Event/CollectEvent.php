@@ -41,6 +41,7 @@ class CollectEvent extends Event
     {
         $this->data = $data;
         $this->tracking = new Tracking();
+        $this->violations = [];
     }
 
     /**
