@@ -55,7 +55,7 @@ class TrackingValidationTest extends KernelTestCase
 
     private function searchErrorOn($propertyPath, $violations)
     {
-        /** @var ConstraintViolation $violation */
+        /** @var ConstraintViolation[] $violations */
         foreach ($violations as $violation) {
             if ($violation->getPropertyPath() == $propertyPath) return TRUE;
         }
