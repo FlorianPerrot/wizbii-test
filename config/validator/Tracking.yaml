@@ -35,6 +35,7 @@ App\Document\Tracking:
 
         wizbii_user_id:
             - NotBlank: ~
+            - Choice: [ test1, test2, test3 ]
 
         wizbii_user_uuid:
             - NotBlank: ~
@@ -46,3 +47,6 @@ App\Document\Tracking:
         data_source:
             - Choice: [web, apps, backend]
             - NotBlank: ~
+
+        queue_time:
+            - GreaterThan: 3600
