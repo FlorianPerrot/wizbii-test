@@ -7,12 +7,10 @@
 
 namespace App\Tests\Controller;
 
-use Doctrine\ODM\MongoDB\DocumentManager;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class DefaultApiControllerTest extends WebTestCase
 {
-
 
     /**
      * @var DocumentManager $dm
@@ -121,6 +119,6 @@ class DefaultApiControllerTest extends WebTestCase
     public function setUp()
     {
         $kernel = self::bootKernel();
-        $this->dm = $kernel->getContainer()->get('doctrine.odm.mongodb.document_manager');
+        $this->dm = $kernel->getContainer()->get('doctrine_mongodb')->getManager();
     }
 }
