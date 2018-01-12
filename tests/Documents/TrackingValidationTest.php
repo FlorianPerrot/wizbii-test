@@ -27,10 +27,10 @@ class TrackingValidationTest extends KernelTestCase
     public function testValidTracking()
     {
         $tracking = new Tracking();
-        $tracking->set('version', 1);
+        $tracking->set('version', '1');
         $tracking->set('hit_type', 'pageview');
         $tracking->set('wizbii_creator_type', 'profile');
-        $tracking->set('wizbii_user_id', 'test-user');
+        $tracking->set('wizbii_user_id', 'test1');
         $tracking->set('wizbii_user_uuid', '38b728b0e0b4f594760d4b3e58797ae1');
         $tracking->set('tracking_id', 'UA-1234-1');
         $tracking->set('data_source', 'apps');
