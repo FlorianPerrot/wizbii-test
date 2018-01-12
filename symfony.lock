@@ -90,12 +90,9 @@
         "version": "3.0.0"
     },
     "symfony/browser-kit": {
-        "version": "v3.4.3"
+        "version": "v4.0.3"
     },
     "symfony/cache": {
-        "version": "v3.4.2"
-    },
-    "symfony/class-loader": {
         "version": "v3.4.2"
     },
     "symfony/config": {
@@ -120,7 +117,7 @@
         "version": "v3.4.2"
     },
     "symfony/dom-crawler": {
-        "version": "v3.4.3"
+        "version": "v4.0.3"
     },
     "symfony/dotenv": {
         "version": "v3.4.2"
@@ -185,10 +182,10 @@
             "ref": "179470cb6492db92dffee208cfdb436f175c93b4"
         }
     },
-    "symfony/polyfill-apcu": {
+    "symfony/polyfill-mbstring": {
         "version": "v1.6.0"
     },
-    "symfony/polyfill-mbstring": {
+    "symfony/polyfill-php72": {
         "version": "v1.6.0"
     },
     "symfony/process": {
