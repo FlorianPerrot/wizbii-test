@@ -2,7 +2,7 @@
     "type": "project",
     "license": "proprietary",
     "require": {
-        "php": "~7.1.8",
+        "php": "7.1.11",
         "ext-iconv": "*",
         "alcaeus/mongo-php-adapter": "^1.1",
         "doctrine/mongodb-odm": "^1.2",
