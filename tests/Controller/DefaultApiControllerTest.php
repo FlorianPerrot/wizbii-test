@@ -43,7 +43,7 @@ class DefaultApiControllerTest extends WebTestCase
     {
         $client = static::createClient();
         $trackingRepo = $this->dm->getRepository('App:Tracking');
-        $nbTrackingItem = $this->count($trackingRepo->findAll());
+        $nbTrackingItem = count($trackingRepo->findAll());
 
         $client->request('POST', '/collect', [
             [
@@ -72,7 +72,7 @@ class DefaultApiControllerTest extends WebTestCase
     {
         $client = static::createClient();
         $trackingRepo = $this->dm->getRepository('App:Tracking');
-        $nbTrackingItem = $this->count($trackingRepo->findAll());
+        $nbTrackingItem = count($trackingRepo->findAll());
 
         $client->request('POST', '/collect', [
             [
@@ -87,8 +87,8 @@ class DefaultApiControllerTest extends WebTestCase
                 'cm'   => 'web',
                 'ck'   => 'erasmus',
                 'cc'   => 'foobar',
-                'v'    => 1,
-                'wui'  => 'test',
+                'v'    => '1',
+                'wui'  => 'test1',
                 'wuui' => 'test',
                 'tid'  => 'UA-1234-1'
             ],
@@ -104,7 +104,7 @@ class DefaultApiControllerTest extends WebTestCase
                 'cm'   => 'web',
                 'ck'   => 'erasmus',
                 'cc'   => 'foobar',
-                'v'    => 1,
+                'v'    => '1',
                 'wui'  => 'test2',
                 'wuui' => 'test2',
                 'tid'  => 'UA-2345-1'
