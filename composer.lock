@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "befc20d103ed35d3d4ab305ca5f937ce",
+    "content-hash": "dfbca9a797387ea7779d9e79b0eaed56",
     "packages": [
         {
             "name": "alcaeus/mongo-php-adapter",
@@ -1628,16 +1628,16 @@
         },
         {
             "name": "symfony/flex",
-            "version": "v1.0.60",
+            "version": "v1.0.61",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/flex.git",
-                "reference": "066fe955b1a134841cdcc068a9f843594fdb1adc"
+                "reference": "f872f8faccf5ff95678e1e428f460a333ba1e5d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/flex/zipball/066fe955b1a134841cdcc068a9f843594fdb1adc",
-                "reference": "066fe955b1a134841cdcc068a9f843594fdb1adc",
+                "url": "https://api.github.com/repos/symfony/flex/zipball/f872f8faccf5ff95678e1e428f460a333ba1e5d0",
+                "reference": "f872f8faccf5ff95678e1e428f460a333ba1e5d0",
                 "shasum": ""
             },
             "require": {
@@ -1670,7 +1670,7 @@
                     "email": "fabien.potencier@gmail.com"
                 }
             ],
-            "time": "2018-01-10T07:00:13+00:00"
+            "time": "2018-01-12T13:09:44+00:00"
         },
         {
             "name": "symfony/framework-bundle",
@@ -3988,7 +3988,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "~7.1.8",
+        "php": "7.1.11",
         "ext-iconv": "*"
     },
     "platform-dev": [],
