@@ -54,3 +54,8 @@ services:
     App\Mapping\TrackingMapping:
         arguments:
             $mapping: '%tracking_mapping%'
+
+    App\Controller\Api\DefaultApiController:
+        arguments:
+            $eventDispatcher: '@event_dispatcher'
+            $mr: '@doctrine_mongodb'

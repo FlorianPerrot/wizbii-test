@@ -9,7 +9,7 @@ namespace App\Controller\Api;
 
 use App\Event\CollectEvent;
 use App\KernelEvents;
-use Doctrine\ODM\MongoDB\DocumentManager;
+use Symfony\Bridge\Doctrine\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -29,12 +29,20 @@ class DefaultApiController extends Controller
     private $eventDispatcher;
 
     /**
-     * DefaultApiController constructor.
-     * @param EventDispatcherInterface $eventDispatcher
+     * @var \Symfony\Bridge\Doctrine\ManagerRegistry
      */
-    public function __construct(EventDispatcherInterface $eventDispatcher)
+    private $mr;
+
+    /**
+     * DefaultApiController constructor.
+     *
+     * @param EventDispatcherInterface $eventDispatcher
+     * @param ManagerRegistry $mr
+     */
+    public function __construct(EventDispatcherInterface $eventDispatcher, ManagerRegistry $mr)
     {
         $this->eventDispatcher = $eventDispatcher;
+        $this->mr = $mr;
     }
 
 
@@ -46,7 +54,7 @@ class DefaultApiController extends Controller
     public function collect(Request $request)
     {
         /** @var DocumentManager $dm */
-        $dm = $this->get('doctrine.odm.mongodb.document_manager');
+        $dm = $this->mr->getManager();
 
         if ($request->getMethod() == Request::METHOD_GET) {
             $data = $request->query->all();
